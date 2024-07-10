@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+			<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		    <property name="jdbcUrl" value="jdbc:mysql://project-db-cgi.smhrd.com:3307/campus_24SW_FULL_p2_3?serverTimezone=UTC&amp;characterEncoding=UTF-8"/>
+		    <property name="username" value="campus_24SW_FULL_p2_3"/>
+		    <property name="password" value="smhrd3"/>
+		</bean>
+		
+		<!-- 2. DataSource : Spring을 통해 mysql사용을 위한 접근 -->
+		
+		<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+			
+			<!-- datasource가 생성될때 처리를 위해 생성자 생성
+			생성자가 생성 될 때 db의 정보를 가지고 있는 hikariConfig 객체 생성 -->
+			<constructor-arg ref="hikariConfig"></constructor-arg>
+		</bean>
+		
+		<!-- 3. Mybatis 사용 하여 sqlSessionFactory 생성 및 관리 -->
+		<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"></property>
+		
+		</bean>
+		
+		<!-- mybatis 활용을 위한 mapper 연결  -->
+		<mybatis-spring:scan base-package = "com.smhrd.healthhub.mapper"/>
+		
+</beans>

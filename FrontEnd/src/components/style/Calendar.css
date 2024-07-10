@@ -1,0 +1,52 @@
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1%;
+  margin-bottom: 2%;
+}
+
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  aspect-ratio: 1;
+  gap: 1%;
+  align-items: center;
+}
+
+.calendar-day-header {
+  font-weight: bold;
+  padding: 5% 0;
+  text-align: center;
+}
+
+
+.calendar-body > .calendar-day {
+  padding: 30%;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  text-align: center;  
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+
+.calendar-day.selected {
+  background-color: #4EA685;
+  color: white;
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+
+.calendar-day-header:first-child {
+  color: red;
+  /* 일요일 글씨 빨간색 */
+}
+
+.calendar-day-header:last-child {
+  color: blue;
+  /* 토요일 글씨 파란색 */
+}

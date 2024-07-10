@@ -1,0 +1,132 @@
+/* Header 스타일 */
+.header {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  justify-content: space-between; /* 공간 분배 */
+  align-items: center; /* 수직 가운데 정렬 */
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  position: fixed; /* 화면 상단 고정 */
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.header .logo {
+  margin: 0;
+  font-size: clamp(20px, 3vw, 30px); /* 반응형 폰트 크기 */
+  color: #4EA685;
+  font-family: 'Georgia', serif;
+}
+
+.header nav {
+  width: clamp(210px, 35%, 400px); /* 반응형 너비 */
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex; /* Flexbox 레이아웃 사용 */
+  justify-content: space-between;
+  gap: 5%;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  cursor: pointer;
+  padding: 2% 2%;
+  position: relative;
+  width: 30%;
+  text-align: center;
+  display: flex; /* li 요소에 flexbox 적용 */
+  justify-content: center; /* li 내부 콘텐츠 가운데 정렬 */
+  
+}
+
+.header nav ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 10%;
+  font-weight: bold;
+  font-size: clamp(10px, 1.5vw, 15px); /* 반응형 폰트 크기 */
+  display: block; /* a 요소를 block 레벨 요소로 설정 */
+  width: 100%; /* a 요소의 너비를 100%로 설정 */
+}
+
+.header nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  bottom: -5px;
+  left: 0;
+  display: none; /* 기본적으로 숨김 */
+  transition: display 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.header nav ul li a.active::after, /* 활성화된 링크 */
+.header nav ul li:hover a::after { /* 호버 효과 */
+  display: block; /* 표시 */
+}
+
+/* 로그인 영역 */
+.login {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.login span {
+  font-size: clamp(10px, 1.5vw, 15px); /* 반응형 폰트 크기 */
+}
+
+.login button {
+  background-color: #4EA685;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: clamp(10px, 1.5vw, 15px); /* 반응형 폰트 크기 */
+}
+
+
+/* 미디어 쿼리 (반응형) */
+@media (max-width: 768px) { /* 화면 너비 768px 이하 */
+  .header {
+    flex-direction: column; /* 세로 배치 */
+    align-items: center; /* 가운데 정렬 */
+    padding: 10px;
+  }
+
+  .header nav {
+    width: 100%;
+  }
+
+  .header nav, /* 작은 화면에서는 기본적으로 숨김 */
+  .login {
+    display: none; 
+  }
+
+  .header:hover nav, /* 호버 시 표시 */
+  .header:hover .login {
+    display: flex;
+  }
+
+  .header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0; /* 간격 제거 */
+  }
+  .header nav ul li a {
+    padding: 10px;
+  }
+  .login {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,26 @@
+/* AdminHeader.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  height: 60px;
+}
+
+.header.dark {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode-toggle {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.header.dark .dark-mode-toggle {
+  background-color: #555;
+  color: white;
+}

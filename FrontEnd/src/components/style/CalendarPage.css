@@ -1,0 +1,225 @@
+body {
+  background-color: whitesmoke;
+}
+
+.date-picker-box,
+.calendar-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.fc {
+  width: 100%;
+}
+
+.date-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.date-navigation button {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.date-navigation span {
+  font-size: 1.2em;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.food-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.food-input input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.food-input button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.meal-time-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
+
+.meal-time-buttons button {
+  background-color: white;
+  border: 1px solid white;
+  padding: 1px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.food-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.food-list th, .food-list td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.food-list td:nth-child(2), .food-list td:nth-child(3) {
+  text-align: right;
+}
+
+.food-list tr.total-calories-row td {
+  border-top: 2px solid #000;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day-header {
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.calendar-day {
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.calendar-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin: 0;
+  padding: 0 40px;
+  background-color: #4EA685;
+  height: 63px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 29px;
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.fc-event-time {
+  display: none;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 500px;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  outline: none;
+  z-index: 1001;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
+.fc .fc-col-header-cell-cushion { /* 캘린더 내부 */
+  display: inline-block;
+  padding: 2px 4px;
+}
+
+.fc .fc-button-primary {
+  background-color: transparent;
+  border: none;
+}
+
+.fc .fc-button-primary:hover {
+  background-color: transparent;
+}
+
+.fc .fc-button-primary span {
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.fc-theme-standard th {
+  height: 32px;
+  padding-top: 3.5px;
+  background: #e5edff;
+  border: 1px solid #dddee0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #7b7b7b;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: #fff8bd;
+  color: #356eff;
+}
+
+.fc .fc-daygrid-day-frame {
+  padding: 10px;
+}
+
+.fc .fc-daygrid-day-top {
+  flex-direction: row;
+  margin-bottom: 3px;
+}
+
+.fc-event {
+  cursor: pointer;
+  padding: 5px 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#foodModal-change, #foodModal-close, #foodModal-save{
+  background-color: lightgrey;
+  border-color: lightgray;
+  border-radius: 5px;
+}
+
+.fc-scroller { /* FullCalendar 스크롤바 컨테이너 */
+  overflow-y: hidden !important; /* 스크롤 숨기기 */
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smhrd.healthhub.mapper.GraphMapper">
+	<!-- t_diet와 t_member를 조인하여 사용자의 식단 정보와 성별 및 생년월일 가져오기 -->
+	<select id="memberValue" parameterType="String" resultType="map">
+		SELECT total_protein, total_carbonhydrate, total_sugar, total_fat,
+		total_calsium, total_fe
+		FROM t_diet
+		WHERE mb_id = #{mb_id} AND diet_date
+		= CURDATE();
+	</select>
+
+	<!-- t_standard 테이블에서 성별 및 나이에 따른 영양소 정보 가져오기 -->
+	<select id="standardValue" parameterType="String"
+		resultType="map">
+		SELECT st_protein, st_carbonhydrate, st_sugar, st_fat,
+		st_calsium, st_fe
+		FROM t_standard
+		WHERE st_gender = (SELECT mb_gender FROM t_member WHERE
+		mb_id = #{mb_id})
+		AND (YEAR(CURDATE()) - YEAR((SELECT mb_birthdate FROM
+		t_member WHERE mb_id = #{mb_id}))) BETWEEN st_age_group_s AND
+		st_age_group_e;
+	</select>
+
+	<!-- 3대영양소 비교 정보 가져오기 -->
+	<select id="majorValue" parameterType="String" resultType="map">
+		SELECT
+		d.total_protein,
+		d.total_carbonhydrate,
+		d.total_fat,
+		d.total_sodium,
+		s.st_sodium
+		FROM
+		t_diet d
+		JOIN t_member m ON d.mb_id = m.mb_id
+		JOIN t_standard s ON s.st_gender = m.mb_gender
+		WHERE
+		d.mb_id = #{mb_id}
+		AND d.diet_date = CURDATE()
+		AND (YEAR(CURDATE()) - YEAR(m.mb_birthdate)) BETWEEN s.st_age_group_s AND
+		s.st_age_group_e;
+
+	</select>
+
+</mapper>

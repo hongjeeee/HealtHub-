@@ -1,0 +1,110 @@
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-container.dark{
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.main-content.dark {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3개의 컬럼으로 설정 */
+  grid-template-areas:
+    "visitor-insights visitor-insights visitor-insights"
+    "total-revenue customer-satisfaction target-vs-reality"
+    "favorite-food volume-vs-service volume-vs-service";
+  gap: 20px;
+  width: 100%;
+}
+
+.dashboard.dark{
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card.dark {
+  background-color: #444;
+  border-color: #555;
+  color: white;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.card table th,
+.card table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.card table th {
+  background-color: #f4f4f4;
+}
+
+.card table th.dark,
+.card table td.dark {
+  background-color: #555;
+  color: white;
+}
+
+.visitor-insights {
+  grid-area: visitor-insights;
+}
+
+.total-revenue {
+  grid-area: total-revenue;
+}
+
+.customer-satisfaction {
+  grid-area: customer-satisfaction;
+}
+
+.favorite-food {
+  grid-area: favorite-food;
+}
+
+.target-vs-reality {
+  grid-area: target-vs-reality;
+}
+
+.volume-vs-service {
+  grid-area: volume-vs-service;
+}
+
+.chart-container1 {
+  position: relative;
+  height: 200px; /* 차트 높이 설정 */
+  width: 100%; /* 차트 너비 설정 */
+}

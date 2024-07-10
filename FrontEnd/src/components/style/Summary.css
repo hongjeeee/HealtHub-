@@ -1,0 +1,140 @@
+/* Summary 컨테이너 스타일 */
+.summary {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  justify-content: space-between; /* 기본: space-between, 작은 화면: center */
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* 줄 바꿈 허용 */
+  gap: 20px; /* 카드 간격 추가 */
+}
+
+/* Summary 박스 스타일 */
+.summaryBox {
+  padding: 3%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: calc(33.33% - 20px); /* 3개 카드, 간격 20px 고려 */
+  flex: 1; /* 컨텐츠에 따라 유연하게 크기 조절 */
+}
+
+.summaryBox-header {
+  font-size: 1.2rem; /* 반응형 폰트 크기 */
+  font-weight: bold;
+}
+
+.summaryBox-content {
+  height: 80%;
+  display: flex; /* Flexbox 레이아웃 사용 */
+  flex-direction: column; /* 수직으로 정렬 */
+  align-items: left;
+  justify-content: center;
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+/* 칼로리 콘텐츠 스타일 */
+#caloriesContent {
+  font-size: 3rem; /* 반응형 폰트 크기 */
+  font-weight: bolder;
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+/* 경고 콘텐츠 스타일 */
+#summaryBox-content1,
+#summaryBox-content2 {
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  font-weight: bold;
+}
+
+#summaryBox-content1 {
+  font-size: 1.5rem; /* 반응형 폰트 크기 */
+}
+
+#summaryBox-content2 {
+  font-size: 0.9rem; /* 반응형 폰트 크기 */
+  margin-top: 5px;
+}
+
+.warning {
+  color: rgb(221, 38, 38);
+}
+
+/* 목표 체중 관련 스타일 */
+.goal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weight-content {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  justify-content: space-around; /* 기본: space-around, 작은 화면: center */
+  width: 100%;
+  flex-direction : row;
+  flex-wrap: wrap; /* 줄 바꿈 허용 */
+  gap: 10px;
+}
+
+.weight-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.weight-label {
+  font-size: clamp(16px, 80%, 32px); /* 반응형 폰트 크기 */
+  font-weight: bold;
+}
+
+.weight-input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  margin: 10% 0;
+  border-radius: 5px;
+}
+
+.weight-submit {
+  background-color: #454444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.weight-data {
+  font-size: clamp(20px, 130%, 40px); /* 반응형 폰트 크기 */
+  font-weight: bold;
+  margin-top: 10%;
+}
+
+/* 미디어 쿼리 (반응형 디자인) */
+@media (max-width: 768px) {
+  .summary {
+    justify-content: center; /* 작은 화면에서 카드 가운데 정렬 */
+  }
+
+  .summaryBox {
+    width: calc(50% - 20px);  /* 2개 카드, 간격 20px 고려 */
+  }
+}
+
+@media (max-width: 480px) {
+  .summaryBox {
+    width: 100%;  /* 1개 카드, 전체 너비 */
+  }
+
+  .weight-content {
+    justify-content: center; /* 작은 화면에서 목표 체중 섹션 가운데 정렬 */
+    flex-direction: column;
+  }
+
+  .weight-section {
+    width: auto; /* 작은 화면에서 너비 자동 조절 */
+    flex-direction: row;
+  }
+}

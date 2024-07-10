@@ -1,0 +1,61 @@
+.ratioChart-div {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* flex-direction: row일 때 가운데 정렬 */
+  overflow: hidden; /* 자식 요소가 넘어가지 않도록 */
+}
+
+.ratioChart-div h2 {
+  text-align: center;
+  font-size: 2em;
+}
+
+.charts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.chart-container {
+  width: 45%;
+  height: 400px; /* 기본 높이 설정 */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#majorGraph, #sodiumGraph {
+  width: 100%;
+  height: 100%; /* 1:1 비율 유지 */
+}
+
+.gauge-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .ratioChart-div {
+    flex-direction: column; /* 작은 화면에서 세로 배치 */
+    align-items: center;
+  }
+
+  .chart-container {
+    width: 100%; /* 작은 화면에서 전체 너비 */
+    height: 50vw; /* 높이를 뷰포트의 50%로 설정하여 비율 유지 */
+    /* margin-bottom: 20px; 차트 간 간격 */
+  }
+}

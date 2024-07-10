@@ -1,0 +1,126 @@
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 테두리와 패딩을 요소 크기에 포함시켜 계산 오류 방지 */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* 글꼴 설정 */
+  margin: 50px; /* 브라우저 창과 내용 사이 간격 */
+}
+
+/* AccountPage 컨테이너 */
+.account-page {
+  max-width: 1200px; /* 최대 너비 제한 */
+  margin: 0 auto; /* 가운데 정렬 */
+  padding: 0 20px 20px; /* 내부 콘텐츠 패딩 */
+}
+
+.main-content > h2{
+  margin-bottom: 5%;
+}
+
+/* mascot 스타일 (필요에 따라 추가) */
+.mascot {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* 폼 스타일 */
+.account-form {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  flex-wrap: wrap; /* 줄 바꿈 허용 */
+  justify-content: space-between; /* 항목 간 간격 최대화 */
+}
+
+/* 폼 그룹 스타일 */
+.form-group {
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  width: 48%; /* 기본 너비 설정 */
+  margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+/* 폼 입력 필드 스타일 */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="number"] {
+  width: 100%; /* 너비 100% */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px; /* 둥근 모서리 */
+  height: 70px;
+}
+
+/* 목표 버튼 그룹 스타일 */
+.goal-buttons {
+  display: flex;
+  justify-content: space-between; /* 버튼 사이 간격 최대화 */
+}
+
+.goal-buttons button {
+  flex: 1; /* 버튼 너비 동일하게 분배 */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 60px;
+  text-align: center;
+}
+
+.goal-buttons button.active {
+  background-color: green;
+  color: white;
+}
+
+/* 폼 버튼 스타일 */
+.form-buttons {
+  display: flex;
+  justify-content: space-between; /* 버튼 사이 간격 최대화 */
+  width: 100%; 
+  margin-top: 20px;
+  
+}
+
+.update-button, 
+.delete-button {
+  flex: 1;
+  /* 버튼 너비 동일하게 분배 */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 60px;
+  text-align: center;
+}
+.delete-button{
+background-color: red;
+color: white;
+margin-left: 20px;
+}
+
+.update-button{
+background-color: black;
+color: white;
+}
+/* 미디어 쿼리 (반응형 디자인) */
+@media (max-width: 768px) { /* 화면 너비가 768px 이하일 때 */
+  .account-form {
+    flex-direction: column; /* 폼 요소를 세로로 배치 */
+  }
+  
+  .form-group {
+    width: 100%; /* 폼 그룹 너비 100% */
+  }
+
+  .goal-buttons button {
+    width: 100%; /* 버튼 너비 100% */
+    margin-bottom: 10px; /* 버튼 아래 여백 추가 */
+  }
+
+  .update-button, 
+  .delete-button {
+    width: 100%; /* 버튼 너비 100% */
+  }
+}

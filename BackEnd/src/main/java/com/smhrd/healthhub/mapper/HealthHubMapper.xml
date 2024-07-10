@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smhrd.healthhub.mapper.HealthHubMapper"> <!-- 수정해야됨 -->
+
+	<insert id="insertMember" parameterType="com.smhrd.healthhub.model.Member">
+		INSERT INTO t_member (mb_id, mb_pw, mb_name, mb_birthdate, mb_email, mb_height, mb_weight, mb_diet_purpose) 
+		VALUES(#{mb_id}, #{mb_pw}, #{mb_name}, #{mb_birthdate}, #{mb_email}, #{mb_height}, #{mb_weight}, #{mb_diet_purpose});
+	</insert>
+	
+	<select id="searchFoods" resultType="com.smhrd.healthhub.model.Food">
+        SELECT *
+        FROM t_food
+        <where>
+            <if test="query != null and query != ''">
+                food_name LIKE CONCAT('%', #{query}, '%') 
+            </if>
+        </where>
+    </select>
+
+    <insert id="addMenu" statementType="CALLABLE">
+    {CALL addMenu(#{meal_type}, #{diet_idx}, #{food_idx}, #{input_amount})}
+	</insert>
+
+	<update id="updateMember">
+    UPDATE t_member
+    <set>
+        <if test="mb_pw != null">mb_pw = #{mb_pw},</if>
+        <if test="mb_name != null">mb_name = #{mb_name},</if>
+        <if test="mb_name != null">mb_email = #{mb_email},</if>
+        <if test="mb_birthdate != null">mb_birthdate = #{mb_birthdate},</if>
+        <if test="mb_height != null">mb_height = #{mb_height},</if>
+        <if test="mb_target_weight != null">mb_target_weight = #{mb_target_weight},</if>
+        <if test="mb_diet_purpose != null">mb_diet_purpose = #{mb_diet_purpose},</if>
+    </set>
+	    WHERE mb_id = #{mb_id}
+	</update>
+
+    <delete id="deleteMember">
+        DELETE FROM t_member WHERE mb_id = #{mbId}
+    </delete>
+	
+
+</mapper>

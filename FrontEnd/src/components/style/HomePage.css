@@ -1,0 +1,21 @@
+/* health-hub 컨테이너 스타일 */
+.health-hub {
+  display: flex;
+  flex-direction: column; /* 세로 배치 */
+  align-items: center; /* 수평 가운데 정렬 */
+  min-height: 100vh; /* 최소 높이 설정 */
+}
+
+/* 메인 콘텐츠 스타일 */
+.main-content {
+  width: 90%; /* 기본 너비 90% */
+  max-width: 1200px; /* 최대 너비 1200px */
+  margin: 20px auto; /* 위아래 여백 20px, 좌우 자동 */
+}
+
+/* 미디어 쿼리 (반응형) */
+@media (max-width: 768px) { /* 화면 너비 768px 이하 */
+  .main-content {
+    width: 95%; /* 너비 95%로 조절 */
+  }
+}

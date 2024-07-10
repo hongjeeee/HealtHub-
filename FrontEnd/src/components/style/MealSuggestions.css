@@ -1,0 +1,57 @@
+/* MealSuggestions 섹션 스타일 */
+.meal-suggestions {
+  font-size: 1.2em;  /* 기본 폰트 크기 조정 */
+  text-align: left;
+  margin: 20px auto;  /* 좌우 자동 margin 추가 */
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.meal-suggestions h2 {
+  text-align: left; /* 제목 가운데 정렬 */
+  margin-bottom: 20px; /* 제목 아래 여백 */
+}
+
+/* meals 컨테이너 스타일 */
+.meals {
+  font-size: 0.9em;  /* 폰트 크기 조정 */
+  display: flex;
+  justify-content: space-around; /* 기본: space-between, 작은 화면: center */
+  gap: 20px; /* 카드 간 간격 추가 */
+}
+
+/* meal 카드 스타일 */
+.meal {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 20px); /* 3개 카드, 간격 20px 고려 */
+  text-align: left;
+}
+
+/* 미디어 쿼리 (반응형 디자인) */
+@media (max-width: 768px) {
+  .meal-suggestions {
+    font-size: 1em;  /* 폰트 크기 조정 */
+    padding: 15px; /* 패딩 조절 */
+  }
+
+  .meals {
+    justify-content: center; /* 작은 화면에서 카드 가운데 정렬 */
+  }
+
+  .meal {
+    width: calc(50% - 20px);  /* 2개 카드, 간격 20px 고려 */
+  }
+}
+
+@media (max-width: 480px) {
+  .meal {
+    width: 100%;  /* 1개 카드, 전체 너비 */
+  }
+}

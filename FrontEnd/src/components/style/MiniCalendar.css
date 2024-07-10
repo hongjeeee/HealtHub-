@@ -1,0 +1,58 @@
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7개의 열로 균등 분할 */
+  gap: 1%; /* 열 사이 간격 */
+  margin-bottom: 2%; /* 아래 여백 */
+}
+
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7개의 열로 균등 분할 */
+  aspect-ratio: 1; /* 1:1 비율 유지 */
+  gap: 1%; /* 열 사이 간격 */
+  align-items: center; /* 수직 가운데 정렬 */
+}
+
+.calendar-day-header {
+  font-weight: bold;
+  padding: 5% 0; /* 위아래 패딩 5% */
+  text-align: center; /* 가운데 정렬 */
+}
+
+.calendar-body > .calendar-day { /* 직계 자식 셀 선택 */
+  padding: 15%; /* 반응형 패딩: 기본 15%, 작은 화면에서 10% */
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 0.8em; /* 기본 폰트 크기 조정 */
+  cursor: pointer;
+  border-radius: 5px; /* 둥근 모서리 추가 */
+  transition: background-color 0.3s ease; /* 배경색 변경 시 부드러운 전환 효과 */
+}
+
+.calendar-day.selected {
+  background-color: #4EA685;
+  color: white;
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+
+.calendar-day-header:first-child { /* 첫 번째 헤더 (일요일) */
+  color: red;
+}
+
+.calendar-day-header:last-child { /* 마지막 헤더 (토요일) */
+  color: blue;
+}
+
+/* 미디어 쿼리 (반응형 디자인) */
+@media (max-width: 768px) { 
+  .calendar-body > .calendar-day { 
+    padding: 10%; /* 작은 화면에서 패딩 줄이기 */
+    font-size: 0.7em; /* 작은 화면에서 폰트 크기 줄이기 */
+  }
+}

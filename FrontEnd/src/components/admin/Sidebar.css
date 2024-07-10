@@ -1,0 +1,64 @@
+/* src/components/Sidebar.css */
+.sidebar {
+  width: 250px;
+  background-color: white;
+  padding: 20px;
+  color: #333;
+}
+
+.sidebar.dark {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.sidebar nav ul li.active,
+.sidebar nav ul li:hover {
+  background-color: #e0f7fa;
+  color: #4caf50;
+}
+
+.sidebar nav ul li.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.sidebar.dark nav ul li.active,
+.sidebar.dark nav ul li:hover {
+  background-color: #444;
+}
+
+.sidebar nav ul li .icon {
+  margin-right: 10px;
+}
+
+.dark-mode-toggle {
+  margin-top: 20px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.sidebar.dark .dark-mode-toggle {
+  background-color: #555;
+}
